@@ -16,16 +16,8 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by oleg on 16.11.16.
  */
-public class MyFirstTest {
-  private WebDriver driver;
-    private WebDriverWait wait;
+public class MyFirstTest extends TestBase{
 
-    @Before
-    public void start(){
-        driver = new FirefoxDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        wait =  new WebDriverWait(driver, 10);
-    }
 
 
     @Test
@@ -38,10 +30,6 @@ public class MyFirstTest {
     }
 
 
-    @After
-    public void stop(){
-        driver.quit();
-        driver = null;
-    }
+
 
 }
