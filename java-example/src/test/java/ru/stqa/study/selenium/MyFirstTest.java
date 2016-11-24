@@ -17,7 +17,7 @@ public class MyFirstTest extends TestBase{
         driver.navigate().to("https://www.mamba.ru/");
         driver.findElement(By.cssSelector(".icon-signup")).click();
        driver.findElement(By.cssSelector(".icon.reg"));
-
+        driver.findElement(By.name("hfhfh"));
 
     }
 
