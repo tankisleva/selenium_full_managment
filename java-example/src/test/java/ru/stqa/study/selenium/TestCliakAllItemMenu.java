@@ -5,5 +5,5 @@ package ru.stqa.study.selenium;
  */
 public class TestCliakAllItemMenu {
 
-    
+
 }
