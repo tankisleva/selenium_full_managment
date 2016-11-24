@@ -27,8 +27,12 @@ public class TestBase {
     }
 
 
-    protected void openLiteCart(){
+    protected void openLiteCartAdmin(){
         driver.navigate().to("http://localhost/litecart/public_html/admin/");
+    }
+
+    protected void openLiteCart(){
+        driver.navigate().to("http://localhost/litecart/public_html/");
     }
 
     protected void loginLiteCart(String username, String password){

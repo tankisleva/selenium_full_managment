@@ -13,7 +13,7 @@ public class TestClickAllItemMenu extends TestBase {
 
     @Test
     public void testAllItemMenuClick() throws Exception {
-        openLiteCart();
+        openLiteCartAdmin();
         loginLiteCart("admin", "admin");
 
         int count = driver.findElements(By.cssSelector("ul#box-apps-menu li#app-")).size();
