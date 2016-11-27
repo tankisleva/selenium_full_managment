@@ -5,9 +5,8 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import java.text.Collator;
 import java.util.*;
-import java.util.Collections.*;
+
 
 /**
  * Created by oleg on 25.11.16.
@@ -51,6 +50,7 @@ public class TestSortCountry extends TestBase {
 
         for (WebElement zone : zones) {
             if (
+
                     !zone.findElements(By.cssSelector("td")).get(6).getText().equals("0"))
             {
                 zone.findElements(By.cssSelector("td")).get(5).click();
@@ -63,14 +63,14 @@ public class TestSortCountry extends TestBase {
 
                 }
 
-                String[] unSotrArrayZonesText = contriestext.split("\n");
-                String[] sotrArrayZonesText = contriestext.split("\n");
+                String[] unSotrArrayZonesText = zonesText.split("\n");
+                String[] sotrArrayZonesText = zonesText.split("\n");
 
                 for (int i = 0; i < unSotrArrayZonesText.length; i++) {
                     System.out.print(unSotrArrayZonesText[i] + "\n");
                 }
 
-                Arrays.sort(sotrArray);
+                Arrays.sort(sotrArrayZonesText);
 
                 for (int i = 0; i < sotrArrayZonesText.length; i++) {
                     System.out.print(sotrArrayZonesText[i] + "/n");
