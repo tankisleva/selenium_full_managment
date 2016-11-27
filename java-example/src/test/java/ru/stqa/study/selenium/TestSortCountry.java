@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 
 import java.text.Collator;
 import java.util.*;
+import java.util.Collections.*;
 
 /**
  * Created by oleg on 25.11.16.
@@ -14,90 +15,79 @@ import java.util.*;
 public class TestSortCountry extends TestBase {
 
 
-
     @Test
     public void testSortCountry() throws Exception {
         openLiteCartAdmin();
         loginLiteCart("admin", "admin");
         driver.findElement(By.cssSelector("a[href*=countries]")).click();
-        List<String> listContries =  getArraysContriesList();
-//        Collator ruCollator = Collator.getInstance(Locale.US);
-//        ruCollator.compare(listContries);
 
-
-//        Set<String> sortedSet = new TreeSet<String>(new Comparator<String>() {
-//            public int compare(String o1, String o2) {
-//                return o1.toString().compareTo(o2.toString());
-//            }
-//        });
-//        sortedSet.addAll(getArraysContriesSet());
-//        System.out.println(sortedSet.addAll(getArraysContriesSet()));
-
-    }
-
-
-    public List<String> getArraysContriesList(){
-        List<String> arrayCountries = new ArrayList<>();
+        /*Блока кода, проверяющий сортировку стран по алфавиту */
+        String contriestext = "";
         List<WebElement> countries = driver.findElements(By.cssSelector("tr.row td:nth-of-type(5) a"));
 
-        for (WebElement country: countries){
-            arrayCountries.add(country.getText());
+        for (WebElement country : countries) {
+            contriestext = contriestext + "\n" + country.getText();
 
         }
-        return arrayCountries;
-    }
+        String[] unSotrArray = contriestext.split("\n");
+        String[] sotrArray = contriestext.split("\n");
+
+        for (int i = 0; i < unSotrArray.length; i++) {
+            System.out.print(unSotrArray[i] + "\n");
+        }
+
+        Arrays.sort(sotrArray);
+
+                for (int i = 0; i < sotrArray.length; i++) {
+            System.out.print(sotrArray[i] + "/n");
+        }
+
+        Assert.assertArrayEquals(sotrArray, unSotrArray);
 
 
-//    private String[] collatorSort(String alphabet, Locale locale) {
-//        return sort(new TreeSet<String>(Collator.getInstance(locale)),alphabet[]);
-//    }
+        /*Блок кода проходящий по всем таймзонам больше нуля, кликающий на эту таймзону и проверяющий сортировку там*/
 
+        List<WebElement> zones = driver.findElements(By.cssSelector("tr.row"));
 
-    public Set<String> getArraysContriesSet(){
-        Set<String> arrayCountries = new HashSet<>();
-        List<WebElement> countries = driver.findElements(By.cssSelector("tr.row td:nth-of-type(5) a"));
+        for (WebElement zone : zones) {
+            if (
+                    !zone.findElements(By.cssSelector("td")).get(6).getText().equals("0"))
+            {
+                zone.findElements(By.cssSelector("td")).get(5).click();
+                sleep(500);
+                List<WebElement> zoneContries = driver.findElements(By.cssSelector("table#table-zones tr + tr td:nth-of-type(3) input"));
+                String zonesText = "";
+                for (WebElement zoneCountryInput : zoneContries)
+                {
+                    zonesText = zonesText + "\n" + zoneCountryInput.getAttribute("value");
 
-        for (WebElement country: countries){
-            arrayCountries.add(country.getText());
+                }
+
+                String[] unSotrArrayZonesText = contriestext.split("\n");
+                String[] sotrArrayZonesText = contriestext.split("\n");
+
+                for (int i = 0; i < unSotrArrayZonesText.length; i++) {
+                    System.out.print(unSotrArrayZonesText[i] + "\n");
+                }
+
+                Arrays.sort(sotrArray);
+
+                for (int i = 0; i < sotrArrayZonesText.length; i++) {
+                    System.out.print(sotrArrayZonesText[i] + "/n");
+                }
+
+                Assert.assertArrayEquals(sotrArrayZonesText, unSotrArrayZonesText);
+                driver.navigate().back();
+                sleep(500);
+
+            }
+
 
         }
-        return arrayCountries;
+
+
     }
-
-
-//    public Set<String> sortSet(Set<String> set){
-//        Set<String> sortedSet = new TreeSet<String>(new Comparator<String>() {
-//            public int compare(String o1, String o2) {
-//                return o1.toString().compareTo(o2.toString());
-//            }
-//        });
-//       sortedSet.addAll(set);
-//    }
-
-//    Comparator<? super  String> alphabet = (g1,g2)-> g1.toString().equals(g2.toString());
-
-
-//    private String[] collatorSort(String text, Locale locale){
-//        return
-//    }
-
-
-    private String[] sort(String[] text){
-        Set<String> set = new TreeSet<String>(Arrays.asList(text));
-        return set.toArray(new String[set.size()]);
-    }
-
-
-//    private List<String> sortList(List<String> text){
-//        List<String> set = new TreeSet<String>(ArrayList<String>.add(text));
-//        return set.toArray(new String[set.size()]);
-//    }
-
-    private String[] sort(Set<String> set, String[] text){
-        set.addAll(Arrays.asList(text));
-        return set.toArray(new String[set.size()]);
-    }
-
-
-
 }
+
+
+
