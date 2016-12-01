@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -60,6 +61,42 @@ public class TestBase {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+
+    public String generateText(int Length) {
+
+        String[] lettersName = { "a", "b", "c", "d", "e", "f", "g", "h", "i",
+                "g", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u",
+                "v", "w", "x", "y", "z" };
+
+        Random rnd = new Random();
+
+        StringBuilder sb = new StringBuilder(Length);
+
+        for (int i = 0; i < Length; i++)
+            sb.append(lettersName[rnd.nextInt(lettersName.length)]);
+
+        return sb.toString();
+
+
+    }
+
+
+    protected void type(By locator, String text) {
+        click(locator);
+//        if (text != null) {
+//            String existintext = driver.findElement(locator).getAttribute("value");
+//            if (!text.equals(existintext)) {
+                driver.findElement(locator).clear();
+                driver.findElement(locator).sendKeys(text);
+//            }
+//
+//        }
+    }
+
+    protected void click(By locator) {
+        driver.findElement(locator).click();
     }
 
 
