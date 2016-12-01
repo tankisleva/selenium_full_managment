@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -99,6 +100,14 @@ public class TestBase {
         driver.findElement(locator).click();
     }
 
+
+//    protected void attach(By locator, File file) {
+//
+//        if (file != null) {
+//            driver.findElement(locator).sendKeys(file.getAbsolutePath());
+//        }
+//
+//    }
 
 
     @After
