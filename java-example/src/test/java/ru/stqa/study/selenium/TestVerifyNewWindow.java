@@ -36,7 +36,7 @@ public class TestVerifyNewWindow extends TestBase {
             driver.close();
             driver.switchTo().window(originalWindow);
 
-            
+
         }
 
     }
