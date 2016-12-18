@@ -11,7 +11,7 @@ import java.util.*;
 /**
  * Created by oleg on 25.11.16.
  */
-public class TestSortCountry extends TestBase {
+public class TestSortCountryOld extends TestBaseOld {
 
 
     @Test

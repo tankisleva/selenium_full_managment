@@ -13,7 +13,7 @@ public class AdminPanelLoginPage extends Page {
     }
 
     public AdminPanelLoginPage open() {
-        driver.get("http://localhost/litecart/admin");
+        driver.get("http://localhost/litecart/public_html/admin/");
         return this;
     }
 

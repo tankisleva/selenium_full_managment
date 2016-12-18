@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by oleg on 24.11.16.
  */
-public class TestVerifySticker extends TestBase {
+public class TestVerifyStickerOld extends TestBaseOld {
 
 
     @Test

@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.Select;
 /**
  * Created by oleg on 01.12.16.
  */
-public class TestAddNewProduct extends TestBase {
+public class TestAddNewProductOld extends TestBaseOld {
 
     @Test
     public void testAddNewProduct() throws Exception {

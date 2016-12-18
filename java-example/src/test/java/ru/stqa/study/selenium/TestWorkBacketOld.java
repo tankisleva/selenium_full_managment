@@ -6,14 +6,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
-import java.util.List;
-
 import static org.openqa.selenium.support.ui.ExpectedConditions.*;
 
 /**
  * Created by oleg on 08.12.16.
  */
-public class TestWorkBacket extends TestBase {
+public class TestWorkBacketOld extends TestBaseOld {
 
     @Test
     public void testWorkBasket() throws Exception {

@@ -1,6 +1,5 @@
 package ru.stqa.study.selenium;
 
-import junit.framework.JUnit4TestAdapter;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -13,7 +12,7 @@ import java.util.List;
 /**
  * Created by oleg on 13.12.16.
  */
-public class TestVerifyNotErrorBrowser extends TestBase {
+public class TestVerifyNotErrorBrowserOld extends TestBaseOld {
 
     @Test
     public void testVerifyNotErrorBrowser() throws Exception {

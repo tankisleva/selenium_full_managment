@@ -8,7 +8,7 @@ import org.openqa.selenium.By;
 /**
  * Created by oleg on 17.11.16.
  */
-public class TestLoginLitecartAdmin extends TestBase{
+public class TestLoginLitecartAdminOld extends TestBaseOld {
 
 
 

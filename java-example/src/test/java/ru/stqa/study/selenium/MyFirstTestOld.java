@@ -8,7 +8,7 @@ import org.openqa.selenium.By;
 /**
  * Created by oleg on 16.11.16.
  */
-public class MyFirstTest extends TestBase{
+public class MyFirstTestOld extends TestBaseOld {
 
 
 

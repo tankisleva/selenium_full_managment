@@ -2,14 +2,11 @@ package ru.stqa.study.selenium;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-
-import java.util.List;
 
 /**
  * Created by oleg on 24.11.16.
  */
-public class TestClickAllItemMenu extends TestBase {
+public class TestClickAllItemMenuOld extends TestBaseOld {
 
     @Test
     public void testAllItemMenuClick() throws Exception {

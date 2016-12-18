@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by oleg on 24.11.16.
  */
-public class TestBase {
+public class TestBaseOld {
 
 
     protected WebDriver driver;

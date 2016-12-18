@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 /**
  * Created by oleg on 01.12.16.
  */
-public class TestCreateAccount extends TestBase {
+public class TestCreateAccountOld extends TestBaseOld {
 
     @Test
     public void testCreateAccount() throws Exception{

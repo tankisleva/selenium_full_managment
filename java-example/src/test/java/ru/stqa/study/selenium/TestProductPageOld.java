@@ -3,14 +3,11 @@ package ru.stqa.study.selenium;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-
-import java.util.List;
 
 /**
  * Created by oleg on 25.11.16.
  */
-public class TestProductPage extends TestBase {
+public class TestProductPageOld extends TestBaseOld {
 
 
     @Test
