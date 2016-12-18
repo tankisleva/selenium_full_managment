@@ -2,6 +2,7 @@ package ru.stqa.study.selenium.app;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import ru.stqa.study.selenium.model.Customer;
 import ru.stqa.study.selenium.pages.*;
 import java.util.Set;
@@ -14,15 +15,18 @@ public class Application {
 
     private WebDriver driver;
 
-    private RegistrationPage registrationPage;
-    private AdminPanelLoginPage adminPanelLoginPage;
-    private CustomerListPage customerListPage;
+    public RegistrationPage registrationPage;
+    public AdminPanelLoginPage adminPanelLoginPage;
+    public CustomerListPage customerListPage;
+    public ProductPage productPage;
+
 
     public Application() {
-        driver = new ChromeDriver();
+        driver = new FirefoxDriver();
         registrationPage = new RegistrationPage(driver);
         adminPanelLoginPage = new AdminPanelLoginPage(driver);
         customerListPage = new CustomerListPage(driver);
+        productPage = new ProductPage(driver);
     }
 
     public void quit() {
@@ -45,12 +49,32 @@ public class Application {
         registrationPage.createAccountButton.click();
     }
 
+
+    public void addProductToShoppingBasket(String product) {
+        productPage.open();
+        sleep(500);
+        productPage.productcCampaigns.get(0).click();
+        sleep(500);
+        productPage.selectProduct(product);
+        sleep(500);
+        productPage.addProductToBacket.click();
+
+    }
+
     public Set<String> getCustomerIds() {
         if (adminPanelLoginPage.open().isOnThisPage()) {
             adminPanelLoginPage.enterUsername("admin").enterPassword("admin").submitLogin();
         }
 
         return customerListPage.open().getCustomerIds();
+    }
+
+    public void sleep(int n){
+        try {
+            Thread.sleep(n);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
 }

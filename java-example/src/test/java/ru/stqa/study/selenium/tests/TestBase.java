@@ -24,4 +24,12 @@ public class TestBase {
         Runtime.getRuntime().addShutdownHook(
                 new Thread(() -> { app.quit(); app = null; }));
     }
+
+    public void sleep(int n){
+        try {
+            Thread.sleep(n);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 }
