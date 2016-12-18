@@ -1,13 +1,11 @@
 package ru.stqa.study.selenium.tests;
 
 
-
-
 import org.junit.Assert;
 import org.junit.Test;
-import static org.openqa.selenium.support.ui.ExpectedConditions.*;
 
-import java.beans.Visibility;
+import static org.openqa.selenium.support.ui.ExpectedConditions.stalenessOf;
+import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
 
 /**
@@ -19,7 +17,7 @@ public class TestWorkBacketNew extends TestBase {
     public void testWorkBacketNew() throws Exception {
         app.addProductToShoppingBasket("Small");
         sleep(1000);
-        Assert.assertEquals(app.productPage.countProductsInBasket.getText(),"1");
+        Assert.assertEquals(app.productPage.countProductsInBasket.getText(), "1");
         app.productPage.open();
         sleep(500);
         app.productPage.redDuckP3.click();
@@ -33,30 +31,18 @@ public class TestWorkBacketNew extends TestBase {
         app.productPage.selectProduct("Small");
         app.productPage.addProductToBacket.click();
         sleep(1000);
-        Assert.assertEquals(app.productPage.countProductsInBasket.getText(),"3");
+        Assert.assertEquals(app.productPage.countProductsInBasket.getText(), "3");
         app.productPage.backet.click();
-      visibilityOf(app.productPage.tableElement);
+        visibilityOf(app.productPage.tableElement);
 
-        while ( app.productPage.removeBackets.size() !=0)
-    {
-        app.productPage.removeBacket.click();
-    }
-    sleep(1000);
+        while (app.productPage.removeBackets.size() != 0) {
+            app.productPage.removeBacket.click();
+        }
+        sleep(1000);
         stalenessOf(app.productPage.tableElement);
 
 
-
-
-
-
-
     }
-
-
-
-
-
-
 
 
 }
